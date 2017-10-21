@@ -28,4 +28,49 @@ public class StringHelper {
 		}
 		return s;
 	}
+	
+	public String Maj(String Chaine){
+		String s=Chaine;
+		String s1="";
+		String s2="hello";
+		s2=s2+s1;
+		String k="";
+                s.toUpperCase();
+		s1=s1 + s.charAt(0);
+		if (!Chaine.equals("")){
+			for ( int i=1;i<Chaine.length();i++){
+				
+				if (s.charAt(i-1)==' ') {
+                                    s.toUpperCase();
+                                    s1=s1+s.charAt(i);
+                                    
+                                }
+				else s.toLowerCase();
+                                s1=s1+s.charAt(i);
+			}
+		}
+		return k;
+	}
+	
+	public void occurence( String Chaine,String mot){
+		try{
+			if (Chaine.contains(mot)) System.out.println("le mot existe.");
+			else System.out.println("le mot n'existe pas.");
+		}
+		catch (Exception ex){
+			System.err.println(ex.getMessage());
+		}
+	}
+	public String remplacer( String Chaine){
+		String s=Chaine ;
+		
+		
+		for (int i=1; i<s.length()-1;i++){
+			s.replace(s.charAt(i),s.charAt(i+1));
+		}
+		s.replace(s.charAt(s.length()), Chaine.charAt(0));
+		return s;
+		
+	}
 }
+
