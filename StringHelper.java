@@ -28,4 +28,26 @@ public class StringHelper {
 		}
 		return s;
 	}
+	
+	public String Maj(String Chaine){
+		String s=Chaine;
+		String s1="";
+		String s2="hello";
+		s2=s2+s1;
+                s.toUpperCase();
+		s1=s1 + s.charAt(0);
+		if (!Chaine.equals("")){
+			for ( int i=1;i<Chaine.length();i++){
+				
+				if (s.charAt(i-1)==' ') {
+                                    s.toUpperCase();
+                                    s1=s1+s.charAt(i);
+                                    
+                                }
+				else s.toLowerCase();
+                                s1=s1+s.charAt(i);
+			}
+		}
+		return s;
+	}
 }
