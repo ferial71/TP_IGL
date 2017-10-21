@@ -32,12 +32,12 @@ public class StringHelper {
 	public String Maj(String Chaine){
 		String s=Chaine;
 		String s1="";
-		String s2="hello";
-		s2=s2+s1;
-		String k="";
+		
+		
                 s.toUpperCase();
-		s1=s1 + s.charAt(0);
+		
 		if (!Chaine.equals("")){
+			s1=s1 + s.charAt(0);
 			for ( int i=1;i<Chaine.length();i++){
 				
 				if (s.charAt(i-1)==' ') {
@@ -49,7 +49,7 @@ public class StringHelper {
                                 s1=s1+s.charAt(i);
 			}
 		}
-		return k;
+		return s;
 	}
 	
 	public void occurence( String Chaine,String mot){
