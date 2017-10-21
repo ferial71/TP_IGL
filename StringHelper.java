@@ -51,4 +51,15 @@ public class StringHelper {
 		}
 		return k;
 	}
+	
+	public void occurence( String Chaine,String mot){
+		try{
+			if (Chaine.contains(mot)) System.out.println("le mot existe.");
+			else System.out.println("le mot n'existe pas.");
+		}
+		catch (Exception ex){
+			System.err.println(ex.getMessage());
+		}
+	}
 }
+
