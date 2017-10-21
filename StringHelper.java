@@ -34,6 +34,7 @@ public class StringHelper {
 		String s1="";
 		String s2="hello";
 		s2=s2+s1;
+		String k="";
                 s.toUpperCase();
 		s1=s1 + s.charAt(0);
 		if (!Chaine.equals("")){
@@ -48,6 +49,6 @@ public class StringHelper {
                                 s1=s1+s.charAt(i);
 			}
 		}
-		return s;
+		return k;
 	}
 }
