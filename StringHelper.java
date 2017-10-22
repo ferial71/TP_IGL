@@ -1,6 +1,23 @@
 
+/**
+ * 
+ * this is a simple application to modify a String
+ * DATE: 22/10/2017 01:36 am 
+ * @author ferial
+ * @version 1.2
+ *
+ */
+
 public class StringHelper {
 	
+	/**
+	 * la méthode Joindre joindre un tableau de chaînes 
+	 * de caractères avec un caractère de séparation
+	 * 
+	 * @param Tableau un tableau de chaine de caractaire 
+	 * @return la méthode va nous donne une chaine de caractaire séparé par ,
+	 * 
+	 */
 	public String Joindre (String[] Tableau){
 		String s=Tableau[0]; 
 		for (int i=1;i<Tableau.length;i++){
@@ -11,7 +28,14 @@ public class StringHelper {
 	}
 	
 	
-	public String eliminer (String Chaine){
+	/**
+	 * 
+	 * la méthode Eliminer elimine les mots vides d’une chaîne (ou,et,à,non)
+	 * 
+	 * @param Chaine une chaine de caractaire
+	 * @return une chaine de caractaire dont les mot vide n'existe plus,
+	 */
+	public String Eliminer (String Chaine){
 		String s="";
 		int nbc = Chaine.length();
 		for (int i = 1; i<nbc ; i++){
@@ -29,6 +53,12 @@ public class StringHelper {
 		return s;
 	}
 	
+	/**
+	 * la méthoe Maj mette en majuscule la première lettre de chaque phrase
+	 * 
+	 * @param Chaine une phrase ou paraghraphe
+	 * @return la phrase avec tout les premiers caractaire des mots sont en majuscule
+	 */
 	public String Maj(String Chaine){
 		String s=Chaine;
 		String s1="";
@@ -38,9 +68,9 @@ public class StringHelper {
 		
 		if (!Chaine.equals("")){
 			s1=s1 + s.charAt(0);
-			for ( int i=1;i<Chaine.length();i++){
+			for ( int i=2;i<Chaine.length();i++){
 				
-				if (s.charAt(i-1)==' ') {
+				if (s.charAt(i-1)==',' || s.charAt(i-1)==';' || s.charAt(i-1)=='.') {
                                     s.toUpperCase();
                                     s1=s1+s.charAt(i);
                                     
@@ -53,16 +83,49 @@ public class StringHelper {
 
 	}
 	
-	public void occurence( String Chaine,String mot){
+	
+	/**
+	 * la méthode Occurence calcule le nombre d’occurrences d’un mot dans un texte
+	 * 
+	 * @param Chaine un text 
+	 * @param mot un mot (chaine de caractaire)
+	 */
+	public int Occurence( String Chaine,String mot){
+		int nbOccurence =0;	
 		try{
-			if (Chaine.contains(mot)) System.out.println("le mot existe.");
-			else System.out.println("le mot n'existe pas.");
+			boolean exist = true;
+			if (Chaine.length()!=0){
+				if ( Chaine.contains(mot) ) {
+					for (int i=1; i<Chaine.length();i++){
+						if (Chaine.charAt(i)== mot.charAt(0)){
+							for(int j=1;j<mot.length();j++){
+								if (Chaine.charAt(i+1)!= mot.charAt(j)) exist=false;
+							}
+							if (exist) nbOccurence++;
+						}
+					}
+				}
+					
+			}else {
+				throw new Exception();
+						
+			}
+			
+			
 		}
 		catch (Exception ex){
 			System.err.println(ex.getMessage());
+			nbOccurence =-1;
 		}
+		return nbOccurence;
 	}
-	public String remplacer( String Chaine){
+	
+	/**
+	 * la méthode Remplacer remplace chaque lettre par la lettre suivante
+	 * @param Chaine la chaine qu'on va modifier
+	 * @return la chaine midifier 
+	 */
+	public String Remplacer( String Chaine){
 		String s=Chaine ;
 		
 		
