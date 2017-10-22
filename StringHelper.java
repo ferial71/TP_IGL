@@ -18,12 +18,12 @@ public class StringHelper {
 	 * @return la méthode va nous donne une chaine de caractaire séparé par ,
 	 * 
 	 */
-	public String Joindre (String[] Tableau){
+	public static String Joindre (String[] Tableau){
 		String s=Tableau[0]; 
 		for (int i=1;i<Tableau.length;i++){
 			s=s+","+Tableau[i];
 		}
-		int a;
+		
 		return s;
 	}
 	
@@ -35,20 +35,20 @@ public class StringHelper {
 	 * @param Chaine une chaine de caractaire
 	 * @return une chaine de caractaire dont les mot vide n'existe plus,
 	 */
-	public String Eliminer (String Chaine){
+	public static String Eliminer (String Chaine){
 		String s="";
 		int nbc = Chaine.length();
-		for (int i = 1; i<nbc ; i++){
+		for (int i = 0; i<nbc-3 ; i++){
 				if (Chaine.charAt(i) == ' ') {
 					switch (Chaine.charAt(i+1)){
 						case 'o' : if (Chaine.charAt(i+2)=='u') break;
 						case 'e' : if (Chaine.charAt(i+2)=='t') break;
 						case 'à' : break;
 						case 'n' : if ((Chaine.charAt(i+2)=='o')&&(Chaine.charAt(i+3)=='n')) break;
-						default : s=s+' ';	
+						default : s=s+" ";	
 					}
 				}
-				else s=s+Chaine.charAt(i);
+				else s=s+Character.toString(Chaine.charAt(i));
 		}
 		return s;
 	}
@@ -59,27 +59,15 @@ public class StringHelper {
 	 * @param Chaine une phrase ou paraghraphe
 	 * @return la phrase avec tout les premiers caractaire des mots sont en majuscule
 	 */
-	public String Maj(String Chaine){
-		String s=Chaine;
-		String s1="";
+	public static String Maj(String Chaine){
 		
-		
-                s.toUpperCase();
-		
-		if (!Chaine.equals("")){
-			s1=s1 + s.charAt(0);
-			for ( int i=2;i<Chaine.length();i++){
-				
-				if (s.charAt(i-1)==',' || s.charAt(i-1)==';' || s.charAt(i-1)=='.') {
-                                    s.toUpperCase();
-                                    s1=s1+s.charAt(i);
-                                    
-                                }
-				else s.toLowerCase();
-                                s1=s1+s.charAt(i);
-			}
+		String s1="",temp=""+Chaine.charAt(0),res="";
+		res=temp.toUpperCase();
+		for(int i =1;i<Chaine.length();i++){
+			temp=""+Chaine.charAt(i);
+			res=res+temp.toLowerCase();
 		}
-		return s;
+		return res;
 
 	}
 	
@@ -90,7 +78,7 @@ public class StringHelper {
 	 * @param Chaine un text 
 	 * @param mot un mot (chaine de caractaire)
 	 */
-	public int Occurence( String Chaine,String mot){
+	public static int Occurence( String Chaine,String mot){
 		int nbOccurence =0;	
 		try{
 			boolean exist = true;
@@ -125,15 +113,17 @@ public class StringHelper {
 	 * @param Chaine la chaine qu'on va modifier
 	 * @return la chaine midifier 
 	 */
-	public String Remplacer( String Chaine){
-		String s=Chaine ;
+	public static String Remplacer( String Chaine){
+		String res="";
+		char temp ;
 		
-		
-		for (int i=1; i<s.length()-1;i++){
-			s.replace(s.charAt(i),s.charAt(i+1));
+		for (int i=1; i < Chaine.length();i++){
+			temp=Chaine.charAt(i);
+			res=res+temp;
+			
 		}
-		s.replace(s.charAt(s.length()), Chaine.charAt(0));
-		return s;
+		
+		return res;
 		
 	}
 
