@@ -50,6 +50,7 @@ public class StringHelper {
 			}
 		}
 		return s;
+
 	}
 	
 	public void occurence( String Chaine,String mot){
@@ -72,5 +73,6 @@ public class StringHelper {
 		return s;
 		
 	}
+
 }
 
